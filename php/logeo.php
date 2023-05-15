@@ -3,11 +3,13 @@ session_start(); //Inicia la sesión
 include  ("conexion.php"); //Conexión a la base de datos
 
 if(isset($_POST['login'])){ //Verifica que se haya enviado el formulario
-    $email = $_POST['email'];
+    $email = $  ['email'];
     $password = $_POST['password'];
 
     $query = "SELECT * FROM `users` WHERE `MAIL_USER`='$email'";
     $result = mysqli_query($conexion, $query);
+    
+    
 
     if(mysqli_num_rows($result) > 0){ //Verifica que exista el usuario en la base de datos
         $row = mysqli_fetch_assoc($result);
