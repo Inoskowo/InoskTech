@@ -99,7 +99,7 @@
                               <input type="text" class="email-bt" placeholder="Nombre" name="Nombre">
                             </div>  
                             <div class="form-group">
-                              <input type="email" class="email-bt" placeholder="Email" name="Mail">
+                              <input type="email   " class="email-bt" placeholder="Email" name="Mail">
                             </div>
                             <div class="form-group">
                               <input type="number" class="email-bt" placeholder="Numero" name="Numero">
