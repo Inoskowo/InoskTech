@@ -94,7 +94,7 @@
                   <div class="email_box">
                     <div class="input_main">
                        <div class="container">
-                          <form action="/action_page.php">
+                       <form action="php/registro.php" method="post">
                             <div class="form-group">
                               <input type="text" class="email-bt" placeholder="Nombre" name="Nombre">
                             </div>  

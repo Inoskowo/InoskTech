@@ -52,9 +52,8 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <a href="index.html">Inicio</a>
   <a href="about.html">Sobre Nosotros</a>
-  <a href="gallery.html">Computadores</a>
+  <a href="gallery.php">Productos</a>
   <a href="contact.html">Contacto</a>
-
 </div>
 <div id="main">
    <!-- header section start -->
@@ -104,70 +103,66 @@
             </div>
          </div>
       </div>
-      <div class="container">
-						<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                            <?php foreach ($resultado as $rows) {
-                                # code...
-                            
-                            ?>
+         <div class="container">
+ <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                         <?php foreach ($resultado as $rows) {
+                             # code...
+                         ?>
+                  <div class="col">
+                     <div class="card shadow-sm">
 
-							<div class="col">
-								<div class="card shadow-sm">
-
-									<?php
-									
-									$id = $rows['ID'];
-
-									
-									$img = "img/" . $id . "	
-									/Principal.jfif";
-
-									//if(!file_exists($img)){
-									//	$img = "img/NoDisponible.jpg";
-									//}
-
-									?>
-									<img src="<?php
-										echo $img;
-									?>
-									" class="
-									d-block w-100">
-									<div class="card body">
-										<h5 class="card-title">
-										<?php
-										echo $rows['Nombre'];
-
-										?>
-
-										</h5>
-										<p class="card-text"><?php
-										echo $rows['Detalles'];
-
-										?></p>
-										<div class="d-flex justify-content-between align-items-center">
-										<div class="btn-group">
-											<a href="#" class="btn btn-primary">
-                                            <p class="card-text"><?php
-										echo $rows['Precio'];
-
-										?></p>
-										</a>
-											
-										</div>
-											<a href="#" class="btn btn-success">Comprar</a>
-										</div>
-									</div>
-								</div>
-                            </div> 
                         <?php
-                        }
+                        
+                        $id = $rows['ID'];
 
-                   ?>
-               </div>            
-               </div>   
-
+                      $img = "img/" . $id . "/Principal.jfif";
 
 
+
+                        //if(!file_exists($img)){
+                        //	$img = "img/NoDisponible.jpg";
+                        //}
+
+                        ?>
+                        <img style="width: 350px; height: 450px;" src="<?php
+                           echo $img;
+                        ?>
+                        " class="
+                        d-block w-100">
+                        <div class="card body">
+                           <h5 class="card-title">
+                           <?php
+                           echo $rows['Nombre'];
+
+                           ?>
+
+                           </h5>
+                           <p class="card-text"><?php
+                           echo $rows['Detalles'];
+
+                           ?></p>
+                           <div class="d-flex justify-content-between align-items-center">
+                           <div class="btn-group">
+                              <a href="detalles.php?id=<?php echo $id; ?>" class="btn btn-primary"><?php
+                           echo number_format( $rows['Precio'],2,',','.');
+
+                           ?></a>
+
+                           </div>
+                              <a href="#" class="btn btn-success">Comprar</a>
+                           </div>
+                        </div>
+                     </div>
+                         </div>                
+                                                                     
+                     <?php
+
+                     }
+
+                     ?>
+                 </div>        
+            
+       </div>
 
 
    <!-- footer section start -->
