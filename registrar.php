@@ -44,37 +44,46 @@
   <a href="about.html">Sobre Nosotros</a>
   <a href="gallery.html">Computadores</a>
   <a href="contact.html">Contacto</a>
-  <a href="testimonial.html">Desarrollador</a>
+
   
 </div>
 
 
 
 <div id="main">
-      <!-- header section start -->
-      <div class="header_section">
-         <div class="row">
-            <div class="col-sm-4">
-            </div>
-            <div class="col-sm-4">
-               <div class="logo"><img src="images/logo.png"></div>
-            </div>
-            <div class="col-sm-4">
-               <div class="togle_3">
-                  <div class="left_main">
-                     <div class="menu_main">
-                     </div>
-                  </div>
-                  <div class="middle_main">
-
-                  </div>
-                  <div class="right_main">
-                     <div class="togle_main"><a class="class="openbtn" onclick="openNav()"><img src="images/togle-menu-icon.png" style="max-width: 100%;"></a></div>
+   <!-- header section start -->
+   <div class="header_section">
+      <div class="container-fluid">
+      <div class="row">
+         <div class="col-sm-4">
+         </div>
+         <div class="col-sm-4">
+            <div class="logo"><img src="images/logo.png"></div>
+         </div>
+         <div class="col-sm-4">
+            <div class="togle_3">
+               <div class="header_main">
+               <div class="left_main">
+                  <div class="menu_main">
                   </div>
                </div>
+               <div class="middle_main">
+               </div>
+               <div class="right_main">
+                  <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/perfil.png" style="max-width: 85%;"></a></div>
+               </div>
+               <div class="right_main">
+                  <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/bolsa.png" style="max-width: 85%;"></a></div>
+               </div>
+               <div class="right_main">
+                  <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/togle-menu-icon.png" style="max-width: 100%;"></a></div>
+               </div>
+            </div>
             </div>
          </div>
-     </div>
+      </div>
+   </div>
+  </div>
 
    <div class="contact_section layout_padding">
       <div class="container">
@@ -87,26 +96,27 @@
                        <div class="container">
                           <form action="/action_page.php">
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Nombre" name="Name">
+                              <input type="text" class="email-bt" placeholder="Nombre" name="Nombre">
                             </div>  
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Email" name="Contraseña">
+                              <input type="email" class="email-bt" placeholder="Email" name="Mail">
                             </div>
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Numero" name="Name">
+                              <input type="number" class="email-bt" placeholder="Numero" name="Numero">
                             </div> 
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Contraseña" name="Name">
+                              <input type="password" class="email-bt" placeholder="Contraseña" name="password">
                             </div> 
                             
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Confirma tu Contraseña" name="Name">
+                              <input type="password" class="email-bt" placeholder="Confirma tu Contraseña" name="passwordConfirm">
                             </div> 
+                            <div class="send_btn">
+                              <button class="main_bt">Registrarse</button>
+                             </div>   
                           </form>   
                        </div> 
-                       <div class="send_btn">
-                        <button type="button" class="main_bt"><a href="#">Registrarse</a></button>
-                       </div>               
+                                  
                            
                     </div>
                  </div>
@@ -181,6 +191,7 @@
          });
        $('#myCarousel').carousel({
             interval: false
+         });
         });
       </script>
 

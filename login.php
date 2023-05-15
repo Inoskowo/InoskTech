@@ -37,15 +37,14 @@
    </head>
    <!-- body -->
    <body>
-
+         
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <a href="index.html">Inicio</a>
   <a href="about.html">Sobre Nosotros</a>
   <a href="gallery.html">Computadores</a>
   <a href="contact.html">Contacto</a>
-  <a href="testimonial.html">Desarrollador</a>
-  
+
 </div>
 
 
@@ -53,29 +52,27 @@
 <div id="main">
       <!-- header section start -->
       <div class="header_section">
-        <div class="container-fluid">
+         <div class="container-fluid">
          <div class="row">
             <div class="col-sm-4">
-            
             </div>
             <div class="col-sm-4">
                <div class="logo"><img src="images/logo.png"></div>
             </div>
             <div class="col-sm-4">
                <div class="togle_3">
-
                   <div class="header_main">
                   <div class="left_main">
                      <div class="menu_main">
-                        </div>
+                     </div>
                   </div>
                   <div class="middle_main">
                   </div>
                   <div class="right_main">
-                     <div class="togle_main"><a href="registrar.html" class="register-link"></a><img src="images/perfil.png" style="max-width: 85%;"></a></div>
+                     <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/perfil.png" style="max-width: 85%;"></a></div>
                   </div>
                   <div class="right_main">
-                     <div class="togle_main"><a href="registrar.html" class="register-link"></a><img src="images/bolsa.png" style="max-width: 85%;"></a></div>
+                     <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/bolsa.png" style="max-width: 85%;"></a></div>
                   </div>
                   <div class="right_main">
                      <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/togle-menu-icon.png" style="max-width: 100%;"></a></div>
@@ -84,6 +81,8 @@
                </div>
             </div>
          </div>
+      </div>
+     </div>
 
    <div class="contact_section layout_padding">
       <div class="container">
@@ -99,12 +98,12 @@
                               <input type="text" class="email-bt" placeholder="Nombre" name="Name">
                             </div>  
                             <div class="form-group">
-                              <input type="text" class="email-bt" placeholder="Contraseña" name="Contraseña">
+                              <input type="password" class="email-bt" placeholder="Contraseña" name="Contraseña">
                             </div>
                             <div class="send_btn">
                               <button type="button" class="login_bt"><a href="#">Iniciar Sesion</a></button>
                               <div class="login-register">
-                                 <p>No tienes una cuenta?</p><a href="registrar.html" class="register-link">Registrate aca</a>
+                                 <p>No tienes una cuenta?</p><a href="registrar.php" class="register-link">Registrate aca</a>
                               </div>
                           </form>   
                        </div> 
@@ -176,16 +175,16 @@
       <script src="js/owl.carousel.js"></script>
       <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
       <script>
-         $(document).ready(function(){
-         $(".fancybox").fancybox({
-         openEffect: "none",
-         closeEffect: "none"
+         $(document).ready(function() {
+             $(".fancybox").fancybox({
+                 openEffect: "none",
+                 closeEffect: "none"
+             });
+             $('#myCarousel').carousel({
+                 interval: false
+             });
          });
-       $('#myCarousel').carousel({
-            interval: false
-        });
-      </script>
-
+         </script>
       <script>
 function openNav() {
   document.getElementById("mySidebar").style.width = "250px";
