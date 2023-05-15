@@ -38,11 +38,11 @@
    <!-- body -->
    <body>
 
-<div id="mySidebar" class="sidebar">
+   <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <a href="index.html">Inicio</a>
   <a href="about.html">Sobre Nosotros</a>
-  <a href="gallery.html">Computadores</a>
+  <a href="gallery.php">Productos</a>
   <a href="contact.html">Contacto</a>
 
   
