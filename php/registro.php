@@ -26,7 +26,7 @@ $resultado = mysqli_query($conexion, $insertarU);  //creando otra variable para 
 
 
 if(!$resultado){
-    echo 'Error al registrar: ' . mysqli_error($conexion);
+    echo 'Error al registrar: '.mysqli_error($conexion);
 
 }
 else{
