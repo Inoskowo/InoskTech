@@ -1,6 +1,6 @@
 <?php
 session_start(); //Inicia la sesión
-include  "conexion.php"; //Conexión a la base de datos
+include  ("conexion.php"); //Conexión a la base de datos
 
 if(isset($_POST['login'])){ //Verifica que se haya enviado el formulario
     $email = $_POST['email'];
