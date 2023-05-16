@@ -124,10 +124,12 @@ ol {
 }
 
 p {
+    color: #fff;
     margin: 1px;
     font-weight: 530;
     font-size: 15px;
     line-height: 24px;
+
 }
 
 
@@ -692,13 +694,6 @@ button.main_bt a:hover { color: #faf9f9; }
 	padding: 10px 0px;
 	font-size: 15px;
 }
-
-
-
-
-
-
-
 
 .sidebar {
   height: 100%;

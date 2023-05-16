@@ -1,3 +1,8 @@
+<?php
+session_start(); // Inicia la sesión
+session_destroy();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -43,10 +48,10 @@
 
       <div id="mySidebar" class="sidebar">
          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-         <a href="index.html">Inicio</a>
-         <a href="about.html">Sobre Nosotros</a>
+         <a href="index.php">Inicio</a>
+         <a href="about.php">Sobre Nosotros</a>
          <a href="gallery.php">Productos</a>
-         <a href="contact.html">Contacto</a>
+         <a href="contact.php">Contacto</a>
 </div>
 
 

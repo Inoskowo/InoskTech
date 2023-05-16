@@ -33,10 +33,7 @@ session_start(); // Inicia la sesión
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-         <?php
-   session_start(); // Inicia la sesión
-   ?>
-
+       
       
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -44,16 +41,22 @@ session_start(); // Inicia la sesión
    </head>
    <!-- body -->
    <body>
-       
+      
+
+      <div id="mySidebar" class="sidebar">
+         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+         <a href="index.php">Inicio</a>
+         <a href="about.php">Sobre Nosotros</a>
+         <a href="gallery.php">Productos</a>
+         <a href="contact.php">Contacto</a>
+              <?php
+  if (isset($_SESSION['user_name'])) {
+      echo '<a href="deslogeo.php">Cerrar sesión</a>';
+  }
+  ?>
+</div>
 
 
-<div id="mySidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <a href="index.html">Inicio</a>
-  <a href="about.html">Sobre Nosotros</a>
-  <a href="gallery.php">Productos</a>
-  <a href="contact.html">Contacto</a>
-  
 </div>
 <div id="main">
       <!-- header section start -->
@@ -74,14 +77,11 @@ session_start(); // Inicia la sesión
                   </div>
                   <div class="middle_main">
                   </div>
-                  <div class="sessionactiva">
-                     <div class="sesionactiva">
+                    <div class="right_main">
+                     <div class="togle_main">
                      <?php if (isset($_SESSION['user_id'])) { // Si hay una sesión activa ?>
-                      <h1>Bienvenido, <?php echo $_SESSION['user_id']; ?></h1>
-                      <a href="logout.php">Cerrar sesión</a>
+                      <p>Bienvenido <?php echo $_SESSION['user_name']; ?></p>
                       <?php } else { // Si no hay una sesión activa ?>
-                     <h1>Por favor, inicia sesión</h1>
-                     <a href="login.php">Iniciar sesión</a>
                      <?php } ?>
                   </div>
                   </div>
