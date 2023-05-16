@@ -16,8 +16,9 @@ if ($result !== false) { // Verifica si el resultado de la consulta no es falso
         $passwordHash = $row['PASSWORD_USER']; // Obtiene la contraseña almacenada en la base de datos para el usuario encontrado
 
         if (password_verify($password, $passwordHash) || $password == $passwordHash) { // Verifica si la contraseña ingresada coincide con la contraseña almacenada
-            $_SESSION['user_id'] = $row['ID_USER']; // Inicia la sesión y guarda el ID del usuario en la variable de sesión 'user_id'
-            header("Location: /index.html"); // Redirige al usuario a la página principal
+            $_SESSION['user_id'] = $row['ID_USER'];
+            $_SESSION['user_name'] = $row['NOMBRE_USER']; 
+            header("Location: /index.php"); // Redirige al usuario a la página principal
             exit(); // Finaliza el script
         } else { // Si la verificación de la contraseña falla
             echo '<script> alert("Contraseña incorrecta"); 
