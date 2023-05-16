@@ -123,6 +123,13 @@ ol {
      list-style: none;
 }
 
+.welcome-text {
+    margin-left: 115px; /* Ajusta el valor según tus necesidades */
+      display: flex;
+}
+
+
+
 p {
     color: #fff;
     margin: 1px;

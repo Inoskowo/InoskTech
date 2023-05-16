@@ -85,15 +85,16 @@ session_start(); // Inicia la sesión
                </div>
                   <div class="right_main">
                      <div class="togle_main">
-                     <?php if (isset($_SESSION['user_id'])) { // Si hay una sesión activa ?>
-                      <p><?php echo $_SESSION['user_name']; ?></p>
-                      <?php } else { // Si no hay una sesión activa ?>
-                     <?php } ?>
+                      <?php if (isset($_SESSION['user_id'])) { // Si hay una sesión activa ?>
+                     <p class="welcome-text"><?php echo $_SESSION['user_name']; ?></p>
+                          <?php } ?>
                   </div>
                   </div>
-               <div class="right_main">
-                   <div class="togle_main"><a href="#" onclick="window.location.href ='login.php'"><img src="images/perfil.png" style="max-width: 85%;"></div>
-               </div>
+                  <div class="right_main">
+                     <?php if (!isset($_SESSION['user_id'])) { // Si no hay una sesión activa ?>
+            <a href="login.php"><img src="images/perfil.png" style="max-width: 85%;"></a>
+                         <?php } ?>
+                  </div>
                <div class="right_main">
                   <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/bolsa.png" style="max-width: 85%;"></a></div>
                </div>
