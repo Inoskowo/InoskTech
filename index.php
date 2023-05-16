@@ -1,3 +1,6 @@
+<?php
+session_start(); // Inicia la sesión
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -30,6 +33,9 @@
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+         <?php
+   session_start(); // Inicia la sesión
+   ?>
 
       
       <!--[if lt IE 9]>
@@ -38,6 +44,8 @@
    </head>
    <!-- body -->
    <body>
+       
+
 
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -65,6 +73,17 @@
                         </div>
                   </div>
                   <div class="middle_main">
+                  </div>
+                  <div class="sessionactiva">
+                     <div class="sesionactiva">
+                     <?php if (isset($_SESSION['user_id'])) { // Si hay una sesión activa ?>
+                      <h1>Bienvenido, <?php echo $_SESSION['user_id']; ?></h1>
+                      <a href="logout.php">Cerrar sesión</a>
+                      <?php } else { // Si no hay una sesión activa ?>
+                     <h1>Por favor, inicia sesión</h1>
+                     <a href="login.php">Iniciar sesión</a>
+                     <?php } ?>
+                  </div>
                   </div>
                   <div class="right_main">
                      <div class="togle_main"><a href="#" onclick="window.location.href ='login.php'"><img src="images/perfil.png" style="max-width: 85%;"></div>

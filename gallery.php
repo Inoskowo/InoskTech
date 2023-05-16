@@ -99,7 +99,7 @@
                <h1 class="our_text"><strong>Nuestro <span style="color: #000;">Computadores</span></strong></h1>
                <p class="about_lorem">A continuacion podras ver los equipos que tenemos disponibles para ti.
                   
-               </p>
+               </p>  
             </div>
          </div>
       </div>
