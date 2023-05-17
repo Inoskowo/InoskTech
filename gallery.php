@@ -1,6 +1,7 @@
 <?php
-session_start(); // Inicia la sesión
+include('php/carrito.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -109,80 +110,63 @@ session_start(); // Inicia la sesión
   </div>
      </div>
 
-   <!-- our section start -->
-   <div class="our_section layout_padding">
-      <div class="container">
-         <div class="row">
-            <div class="col-sm-12">
-               <h1 class="our_text"><strong>Nuestro <span style="color: #000;">Computadores</span></strong></h1>
-               <p class="about_lorem">A continuacion podras ver los equipos que tenemos disponibles para ti.
-                  
-               </p>
-            </div>
+ <!-- our section start -->
+<div class="our_section layout_padding">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <h1 class="our_text"><strong>Nuestro <span style="color: #000;">Computadores</span></strong></h1>
+            <p class="about_lorem">A continuación podrás ver los equipos que tenemos disponibles para ti.</p>
          </div>
       </div>
-         <div class="container">
- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                         <?php foreach ($resultado as $rows) {
-                             # code...
-                         ?>
-                  <div class="col">
-                     <div class="card shadow-sm">
+   </div>
+   <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 d-flex flex-wrap">
+         <?php
+         // Verificar si hay un mensaje en la variable de sesión
+         if (isset($_SESSION['mensaje'])) {
+            echo '<div class="col-12 mt-3">';
+            echo '<div class="alert alert-success" role="alert">';
+            echo $_SESSION['mensaje'];
+            echo '</div>';
+            echo '</div>';
 
-                        <?php
-                        
-                        $id = $rows['ID'];
+            // Eliminar el mensaje de la variable de sesión
+            unset($_SESSION['mensaje']);
+         }
+         ?>
+         <?php
+         while ($row = mysqli_fetch_assoc($resultado)) {
+            $id = $row['ID'];
+            $img = "img/" . $id . "/Principal.jfif";
+            ?>
 
-                      $img = "img/" . $id . "/Principal.jfif";
-
-
-
-                        //if(!file_exists($img)){
-                        //	$img = "img/NoDisponible.jpg";
-                        //}
-
-                        ?>
-                        <img style="width: 350px; height: 450px;" src="<?php
-                           echo $img;
-                        ?>
-                        " class="
-                        d-block w-100">
-                        <div class="card body">
-                           <h5 class="card-title">
-                           <?php
-                           echo $rows['Nombre'];
-
-                           ?>
-
-                           </h5>
-                           <p class="card-text"><?php
-                           echo $rows['Detalles'];
-
-                           ?></p>
-                           <div class="d-flex justify-content-between align-items-center">
-                           <div class="btn-group">
-                              <a href="detalles.php?id=<?php echo $id; ?>" class="btn btn-primary"><?php
-                           echo number_format( $rows['Precio'],2,',','.');
-
-                           ?></a>
-
-                           </div>
-                              <a href="#" class="btn btn-success">Comprar</a>
-                           </div>
+            <div class="col">
+               <div class="card shadow-sm">
+                  <img style="width: 350px; height: 450px;" src="<?php echo $img; ?>" class="d-block w-100">
+                  <div class="card-body">
+                     <h5 class="card-title"><?php echo $row['Nombre']; ?></h5>
+                     <p class="card-text"><?php echo $row['Detalles']; ?></p>
+                     <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                           <a href="detalles.php?id=<?php echo $id; ?>" class="btn btn-primary">
+                              <?php echo number_format($row['Precio'], 2, ',', '.'); ?>
+                           </a>
                         </div>
+                        <form action="php/agregarcarrito.php" method="post">
+                           <input type="hidden" name="id" value="<?php echo $id; ?>">
+                           <input type="hidden" name="nombre" value="<?php echo $row['Nombre']; ?>">
+                           <input type="hidden" name="precio" value="<?php echo $row['Precio']; ?>">
+                           <button type="submit" class="btn btn-success">Comprar</button>
+                        </form>
                      </div>
-                         </div>                
-                                                                     
-                     <?php
-
-                     }
-
-                     ?>
-                 </div>        
-            
-       </div>
-
-
+                  </div>
+               </div>
+            </div>
+         <?php } ?>
+      </div>
+   </div>
+</div>
    <!-- footer section start -->
    <div class="footer_section layout_padding">
       <div class="container">
