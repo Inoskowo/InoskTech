@@ -90,7 +90,7 @@ session_start(); // Inicia la sesión
                          <?php } ?>
                   </div>
                   <div class="right_main">
-                     <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/bolsa.png" style="max-width: 85%;"></a></div>
+                     <div class="togle_main"><a href="carrito.php"><img src="images/bolsa.png" style="max-width: 85%;"></a></div>
                   </div>
                   <div class="right_main">
                      <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/togle-menu-icon.png" style="max-width: 100%;"></a></div>

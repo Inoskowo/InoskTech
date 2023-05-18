@@ -1,5 +1,5 @@
 <?php
-include('php/carrito.php');
+session_start(); // Inicia la sesión
 ?>
 
 <!DOCTYPE html>
@@ -84,20 +84,21 @@ include('php/carrito.php');
                </div>
                <div class="middle_main">
                </div>
-                  <div class="right_main">
-                     <div class="togle_main">
-                      <?php if (isset($_SESSION['user_id'])) { // Si hay una sesión activa ?>
-                     <p class="welcome-text"><?php echo $_SESSION['user_name']; ?></p>
-                          <?php } ?>
-                  </div>
-                  </div>
+                <div class="right_main">
+   <div class="togle_main">
+      <?php if (isset($_SESSION['user_name'])) { // Si hay una sesión activa ?>
+         <p class="welcome-text"><?php echo $_SESSION['user_name']; ?></p>
+      <?php } ?>
+   </div>
+</div>
+
                   <div class="right_main">
                      <?php if (!isset($_SESSION['user_id'])) { // Si no hay una sesión activa ?>
             <a href="login.php"><img src="images/perfil.png" style="max-width: 85%;"></a>
                          <?php } ?>
                   </div>
                <div class="right_main">
-                  <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/bolsa.png" style="max-width: 85%;"></a></div>
+                 <div class="togle_main"><a href="carrito.php"><img src="images/bolsa.png" style="max-width: 85%;"></a></div>
                </div>
                <div class="right_main">
                   <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/togle-menu-icon.png" style="max-width: 100%;"></a></div>
@@ -120,53 +121,66 @@ include('php/carrito.php');
          </div>
       </div>
    </div>
-   <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 d-flex flex-wrap">
-         <?php
-         // Verificar si hay un mensaje en la variable de sesión
-         if (isset($_SESSION['mensaje'])) {
-            echo '<div class="col-12 mt-3">';
-            echo '<div class="alert alert-success" role="alert">';
-            echo $_SESSION['mensaje'];
-            echo '</div>';
-            echo '</div>';
+<div class="container">
+   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 d-flex flex-wrap">
+      <?php
+      // Verificar si hay un mensaje en la variable de sesión
+      if (isset($_SESSION['mensaje'])) {
+         echo '<div class="col-12 mt-3">';
+         echo '<div class="alert alert-success" role="alert">';
+         echo $_SESSION['mensaje'];
+         echo '</div>';
+         echo '</div>';
 
-            // Eliminar el mensaje de la variable de sesión
-            unset($_SESSION['mensaje']);
-         }
+         // Eliminar el mensaje de la variable de sesión
+         unset($_SESSION['mensaje']);
+      }
+      ?>
+      <?php
+      while ($row = mysqli_fetch_assoc($resultado)) {
+         $id = $row['ID'];
+         $img = "img/" . $id . "/Principal.jfif";
          ?>
-         <?php
-         while ($row = mysqli_fetch_assoc($resultado)) {
-            $id = $row['ID'];
-            $img = "img/" . $id . "/Principal.jfif";
-            ?>
 
-            <div class="col">
-               <div class="card shadow-sm">
-                  <img style="width: 350px; height: 450px;" src="<?php echo $img; ?>" class="d-block w-100">
-                  <div class="card-body">
-                     <h5 class="card-title"><?php echo $row['Nombre']; ?></h5>
-                     <p class="card-text"><?php echo $row['Detalles']; ?></p>
-                     <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                           <a href="detalles.php?id=<?php echo $id; ?>" class="btn btn-primary">
-                              <?php echo number_format($row['Precio'], 2, ',', '.'); ?>
-                           </a>
-                        </div>
+         <div class="col">
+            <div class="card shadow-sm">
+               <img style="width: 350px; height: 450px;" src="<?php echo $img; ?>" class="d-block w-100">
+               <div class="card-body">
+                  <h5 class="card-title"><?php echo $row['Nombre']; ?></h5>
+                  <p class="card-text"><?php echo $row['Detalles']; ?></p>
+                  <div class="d-flex justify-content-between align-items-center">
+                     <div class="btn-group">
+                        <a href="detalles.php?id=<?php echo $id; ?>" class="btn btn-primary">
+                           <?php echo number_format($row['Precio'], 2, ',', '.'); ?>
+                        </a>
+                     </div>
+                     <?php if (empty($_SESSION['user_name'])) { ?>
+                        <button class="btn btn-success" onclick="mostrarAviso()">Comprar</button>
+                     <?php } else { ?>
                         <form action="php/agregarcarrito.php" method="post">
                            <input type="hidden" name="id" value="<?php echo $id; ?>">
                            <input type="hidden" name="nombre" value="<?php echo $row['Nombre']; ?>">
                            <input type="hidden" name="precio" value="<?php echo $row['Precio']; ?>">
                            <button type="submit" class="btn btn-success">Comprar</button>
                         </form>
-                     </div>
+                     <?php } ?>
                   </div>
                </div>
             </div>
-         <?php } ?>
-      </div>
+         </div>
+      <?php } ?>
+
    </div>
 </div>
+
+<?php if (empty($_SESSION['user_name'])) { ?>
+   <script>
+      function mostrarAviso() {
+         alert("Inicia sesión para agregar productos al carrito.");
+      }
+   </script>
+<?php } ?>
+
    <!-- footer section start -->
    <div class="footer_section layout_padding">
       <div class="container">

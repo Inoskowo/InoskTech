@@ -9,13 +9,10 @@ session_destroy();
       <!-- basic -->
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <script src="https://kit.fontawesome.com/5536ae2e40.js" crossorigin="anonymous"></script>
       <!-- mobile metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="shortcut icon" href="images/logo.png" />
-
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      
       <!-- site metas -->
       <title>Inosk-Tech</title>
       <meta name="keywords" content="">
@@ -46,12 +43,17 @@ session_destroy();
    <!-- body -->
    <body>
 
-      <div id="mySidebar" class="sidebar">
+    <div id="mySidebar" class="sidebar">
          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
          <a href="index.php">Inicio</a>
          <a href="about.php">Sobre Nosotros</a>
          <a href="gallery.php">Productos</a>
          <a href="contact.php">Contacto</a>
+              <?php
+  if (isset($_SESSION['user_name'])) {
+      echo '<a href="deslogeo.php">Cerrar sesión</a>';
+  }
+  ?>
 </div>
 
 
@@ -74,11 +76,20 @@ session_destroy();
                </div>
                <div class="middle_main">
                </div>
+                  <div class="right_main">
+                     <div class="togle_main">
+                      <?php if (isset($_SESSION['user_id'])) { // Si hay una sesión activa ?>
+                     <p class="welcome-text"><?php echo $_SESSION['user_name']; ?></p>
+                          <?php } ?>
+                  </div>
+                  </div>
+                  <div class="right_main">
+                     <?php if (!isset($_SESSION['user_id'])) { // Si no hay una sesión activa ?>
+            <a href="login.php"><img src="images/perfil.png" style="max-width: 85%;"></a>
+                         <?php } ?>
+                  </div>
                <div class="right_main">
-                  <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/perfil.png" style="max-width: 85%;"></a></div>
-               </div>
-               <div class="right_main">
-                  <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/bolsa.png" style="max-width: 85%;"></a></div>
+                   <div class="togle_main"><a href="carrito.php"><img src="images/bolsa.png" style="max-width: 85%;"></a></div>
                </div>
                <div class="right_main">
                   <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/togle-menu-icon.png" style="max-width: 100%;"></a></div>
@@ -89,6 +100,7 @@ session_destroy();
       </div>
    </div>
   </div>
+     </div>
 
    <!-- about section start -->
    <div class="about_section layout_padding">
