@@ -94,7 +94,24 @@
                        <div class="container">
                            <form action="php/logeo.php" method="post">
                             <div class="form-group">
-                          
+                              <input type="email" class="email-bt" placeholder="Nombre" name="Name">
+                            </div>  
+                            <div class="form-group">
+                              <input type="password" class="email-bt" placeholder="Contraseña" name="Contraseña">
+                            </div>
+                            <div class="send_btn">
+                              <button class="login_bt"><a>Iniciar Sesion</a></button>
+                              <div class="login-register">
+                                 <p>No tienes una cuenta?</p><a href="registrar.php" class="register-link">Registrate aca</a>
+                              </div>
+                          </form>   
+                       </div> 
+                     
+                       </div>                   
+                    </div>
+                 </div>
+               </div>
+            </div>
    </div>
 
 
