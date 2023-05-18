@@ -68,7 +68,7 @@
                   <div class="middle_main">
                   </div>
                   <div class="right_main">
-                     <div class="togle_main"><a href="#" onclick="window.location.href ='login.php'"><img src="images/perfil.png" style="max-width: 85%;"></div>
+                     <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/perfil.png" style="max-width: 85%;"></a></div>
                   </div>
                   <div class="right_main">
                      <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/bolsa.png" style="max-width: 85%;"></a></div>
@@ -92,8 +92,9 @@
                   <div class="email_box">
                     <div class="input_main">
                        <div class="container">
-                      
-                     
+                           <form action="php/logeo.php" method="post">
+                            <div class="form-group">
+                          
    </div>
 
 
