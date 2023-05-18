@@ -76,13 +76,13 @@ session_start(); // Inicia la sesión
                </div>
                   <div class="right_main">
                      <div class="togle_main">
-                      <?php if (isset($_SESSION['user_id'])) { //Si hay una sesión activa muestra un texto con el nombre de usuario ?>
+                      <?php if (isset($_SESSION['user_id'])) { ?>
                      <p class="welcome-text"><?php echo $_SESSION['user_name']; ?></p>
                           <?php } ?>
                   </div>
                   </div>
                   <div class="right_main">
-                     <?php if (!isset($_SESSION['user_id'])) { // Si no hay una sesión activa muestra el icono de inicar sesion, si la hay ocultara el logo. ?>
+                     <?php if (!isset($_SESSION['user_id'])) { // Si no hay una sesión activa ?>
             <a href="login.php"><img src="images/perfil.png" style="max-width: 85%;"></a>
                          <?php } ?>
                   </div>

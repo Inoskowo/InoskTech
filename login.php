@@ -40,10 +40,10 @@
          
    <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <a href="index.html">Inicio</a>
-  <a href="about.html">Sobre Nosotros</a>
+  <a href="index.php">Inicio</a>
+  <a href="about.php">Sobre Nosotros</a>
   <a href="gallery.php">Productos</a>
-  <a href="contact.html">Contacto</a>
+  <a href="contact.php">Contacto</a>
 </div>
 
 
@@ -68,7 +68,7 @@
                   <div class="middle_main">
                   </div>
                   <div class="right_main">
-                     <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/perfil.png" style="max-width: 85%;"></a></div>
+                     <div class="togle_main"><a href="#" onclick="window.location.href ='login.php'"><img src="images/perfil.png" style="max-width: 85%;"></div>
                   </div>
                   <div class="right_main">
                      <div class="togle_main"><a class="class="openbtn onclick="openNav()"><img src="images/bolsa.png" style="max-width: 85%;"></a></div>
@@ -94,10 +94,10 @@
                        <div class="container">
                            <form action="php/logeo.php" method="post">
                             <div class="form-group">
-                              <input type="email" class="email-bt" placeholder="Nombre" name="Name">
+                              <input type="email" class="email-bt" placeholder="Email" name="email">
                             </div>  
                             <div class="form-group">
-                              <input type="password" class="email-bt" placeholder="Contraseña" name="Contraseña">
+                              <input type="password" class="email-bt" placeholder="Contraseña" name="password">
                             </div>
                             <div class="send_btn">
                               <button class="login_bt"><a>Iniciar Sesion</a></button>
